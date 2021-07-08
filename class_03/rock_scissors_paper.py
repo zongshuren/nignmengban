@@ -48,6 +48,7 @@ class Rock_Scissors_paper():
                 ping += 1
             jixu = input('按n退出游戏')
             if jixu == 'n':
+
                 break
 
 if __name__ == '__main__':
