@@ -32,6 +32,7 @@ class Park:
             ertogn = int(child)*self.price*0.5
             count = chengren+ertogn
             print('总票价为{0}元'.format(count))
+
         elif day == 0:
             chengren = int(man) * 1.2 * self.price
             ertogn = int(child) * 1.2 * self.price * 0.5

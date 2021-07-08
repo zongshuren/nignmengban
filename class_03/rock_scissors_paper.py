@@ -46,7 +46,9 @@ class Rock_Scissors_paper():
                 print('电脑赢了')
             elif role_quan-comp_name == 0:
                 ping += 1
+
             jixu = input('按n退出游戏')
+
             if jixu == 'n':
 
                 break
