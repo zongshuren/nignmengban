@@ -1,27 +1,28 @@
 from faker import Faker
 f = Faker('zh-CN')
-print(f.name())
-
-import random
-
-list1 = ['佛山', '南宁', '北海', '杭州', '南昌', '厦门', '温州']
-
-a = random.choice(list1)
-
-print(a)
-fengmian_list = ['upload/20210508/dee1d772a4705c7729c2b1b4ac2dec87.jpg',
-                 'upload/20210126/15e07a363b0c22a6296a9293e2682b9f.png',
-                 'upload/20210126/43b893d472c61b80d4c2afd89aac83c0.png',
-                 'upload/20210119/4abe8b594bacbad135d1cbaac43b4de3.png',
-                 'upload/20210517/3e1a04397241be534c2a7354d5fb1242.jpg',
-                 'upload/20210520/8d5e994e00b02c5d7ce2d4f1b4c4d74c.jpg',
-                 'upload/20210520/10b9ed6b9d662f1a2dca7f98976e8b99.jpg']
-fengmian_url = random.choice(fengmian_list)
-
-xiaozoa_body = {"bookName": " 测试绘本", "bookChineseName": "中文名字",
-                    "bookCoverUrl": f"http://test-oss.xzao100.com/{fengmian_url}", "subLevel": 2401, "contentType": 1,
-                    "lexile": "L0", "bigcatModuleTypeList": [2, 3], "bookSeries": 2}
-print(xiaozoa_body)
+print(f.phone_number())
+print(f.address())
+#
+# import random
+#
+# list1 = ['佛山', '南宁', '北海', '杭州', '南昌', '厦门', '温州']
+#
+# a = random.choice(list1)
+#
+# print(a)
+# fengmian_list = ['upload/20210508/dee1d772a4705c7729c2b1b4ac2dec87.jpg',
+#                  'upload/20210126/15e07a363b0c22a6296a9293e2682b9f.png',
+#                  'upload/20210126/43b893d472c61b80d4c2afd89aac83c0.png',
+#                  'upload/20210119/4abe8b594bacbad135d1cbaac43b4de3.png',
+#                  'upload/20210517/3e1a04397241be534c2a7354d5fb1242.jpg',
+#                  'upload/20210520/8d5e994e00b02c5d7ce2d4f1b4c4d74c.jpg',
+#                  'upload/20210520/10b9ed6b9d662f1a2dca7f98976e8b99.jpg']
+# fengmian_url = random.choice(fengmian_list)
+#
+# xiaozoa_body = {"bookName": " 测试绘本", "bookChineseName": "中文名字",
+#                     "bookCoverUrl": f"http://test-oss.xzao100.com/{fengmian_url}", "subLevel": 2401, "contentType": 1,
+#                     "lexile": "L0", "bigcatModuleTypeList": [2, 3], "bookSeries": 2}
+# print(xiaozoa_body)
 # 1、地理信息类
 # city_suffix()：市，县
 # country()：国家
