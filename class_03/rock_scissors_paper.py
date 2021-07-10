@@ -23,6 +23,9 @@ class Rock_Scissors_paper():
 
         quan_num = input('请出拳1:剪刀,2:石头,3:布')
 
+        if int(quan_num) > 3:
+            print('出拳错误，请输入1-3')
+            self.get_role_fist()
         return int(quan_num)
 
     def get_computer_fist(self):
@@ -40,6 +43,7 @@ class Rock_Scissors_paper():
         while True:
             role_quan = self.get_role_fist()
             comp_name = self.get_computer_fist()
+            print(role_quan, comp_name)
             if role_quan-comp_name == 1 or role_quan-comp_name == 2:
                 role_win += 1
                 print('{0}赢了'.format(role_name))
