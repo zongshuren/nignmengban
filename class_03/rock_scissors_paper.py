@@ -26,7 +26,7 @@ class Rock_Scissors_paper():
 
         if int(quan_num) > 3:
             print('出拳错误，请输入1-3')
-            return self.get_role_fist()
+            self.game_begin()
         else:
             return int(quan_num)
 
