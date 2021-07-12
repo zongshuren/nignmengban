@@ -20,6 +20,7 @@ class Rock_Scissors_paper():
     #         # print(self.role_dict[int(role_num)])
     #         return self.role_dict[int(role_num)]
 
+
     def get_role_name(self):
         role_num = input('选择角色1:曹操,2:刘备,3:诸葛亮')
         if int(role_num) not in self.role_dict:
