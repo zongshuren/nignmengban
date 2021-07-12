@@ -11,14 +11,6 @@ class Rock_Scissors_paper():
     role_dict = {1: '曹操', 2: '刘备', 3: '诸葛亮'}
     paper_dict = {1: '剪刀', 2: '石头', 3: '布'}
 
-    # def get_role_name(self):
-    #     role_num = input('选择角色1:曹操,2:刘备,3:诸葛亮')
-    #     if int(role_num) not in self.role_dict:
-    #         print('角色不存在，请重新选择')
-    #         self.game_begin()
-    #     else:
-    #         # print(self.role_dict[int(role_num)])
-    #         return self.role_dict[int(role_num)]
 
     def get_role_name(self):
         role_num = input('选择角色1:曹操,2:刘备,3:诸葛亮')
