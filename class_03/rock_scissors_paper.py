@@ -22,22 +22,42 @@ class Rock_Scissors_paper():
 
 
     def get_role_name(self):
-        role_num = input('选择角色1:曹操,2:刘备,3:诸葛亮')
-        if int(role_num) not in self.role_dict:
-            print('角色不存在，请重新选择')
+
+        try:
+
+            role_num = input('选择角色1:曹操,2:刘备,3:诸葛亮')
+
+            if int(role_num) not in self.role_dict:
+
+                print('角色不存在，请重新选择')
+                return self.get_role_name()
+
+            else:
+                return self.role_dict[int(role_num)]
+
+        except Exception:
+
+            print('选择错误请重新选择')
+
             return self.get_role_name()
-        else:
-            return self.role_dict[int(role_num)]
 
     def get_role_fist(self):
 
-        quan_num = input('请出拳1:剪刀,2:石头,3:布')
+        try:
 
-        if int(quan_num) > 3:
-            print('出拳错误，请输入1-3')
+            quan_num = input('请出拳1:剪刀,2:石头,3:布')
+            if int(quan_num) > 3:
+
+                print('出拳错误，请输入1-3')
+                return self.get_role_fist()
+
+            else:
+                return int(quan_num)
+
+        except Exception:
+
+            print('输入有误请重新输入')
             return self.get_role_fist()
-        else:
-            return int(quan_num)
 
     def get_computer_fist(self):
 
