@@ -53,13 +53,14 @@ class NewXueyuan:
         return self.url, self.headers, self.json
         # res = requests.post(url=url, headers=headers, json=json)
         # print(res.json())
-    def create(self):
-        url, headers, josn = self.data_preparation()
+    def create(self,num):
 
-        res = requests.post(url=url, headers=headers, json=josn)
+        for i in range(num):
+            url, headers, josn = self.data_preparation()
+            res = requests.post(url=url, headers=headers, json=josn)
 
-        print(res.json())
+            print(res.json())
 
 if __name__ == '__main__':
 
-    NewXueyuan().create()
+    NewXueyuan().create(5)
