@@ -4,7 +4,7 @@ print(f.phone_number())
 print(f.address())
 print(f.date_between(start_date="-11y", end_date="today"))
 print(f.random_number(digits=8))
-
+print(type(f.name()))
 #
 # import random
 #
