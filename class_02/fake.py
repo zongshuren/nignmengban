@@ -2,6 +2,9 @@ from faker import Faker
 f = Faker('zh-CN')
 print(f.phone_number())
 print(f.address())
+print(f.date_between(start_date="-11y", end_date="today"))
+print(f.random_number(digits=8))
+
 #
 # import random
 #
