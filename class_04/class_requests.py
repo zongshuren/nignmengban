@@ -50,11 +50,13 @@ class NewXueyuan:
                 "teachersList": "[{\"value\":2127,\"label\":\"宗树仁\"}]",  # 教师
                 "schoolAdminList": "[{\"value\":2127,\"label\":\"宗树仁\"}]"}
         print(self.json)
+        return self.url, self.headers, self.json
         # res = requests.post(url=url, headers=headers, json=json)
         # print(res.json())
     def create(self):
+        url, headers, josn = self.data_preparation()
 
-        res = requests.post(url=self.url, headers=self.headers, json=self.json)
+        res = requests.post(url=url, headers=headers, json=josn)
 
         print(res.json())
 
