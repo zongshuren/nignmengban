@@ -11,7 +11,7 @@ class NewXueyuan(object):
         self.division = ['文科', '理科']
         self.channel_tag = ['学校名单', '活动采单', '客户介绍', '机构合作', '渠道购买', '地推']
         self.tag = ['1级', '2级']
-        self.school_name= ['佛山', '南宁', '北海', '杭州', '南昌', '厦门', '温州']
+        self.school_name = ['佛山', '南宁', '北海', '杭州', '南昌', '厦门', '温州']
         # self.birthday = self.faker.date_between(start_date="-11y", end_date="today")
         # self.community = self.faker.address()
         # self.lexue_id = self.faker.random_number(digits=8)
