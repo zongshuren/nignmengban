@@ -5,7 +5,7 @@ print(f.address())
 print(f.date_between(start_date="-11y", end_date="today"))
 print(f.random_number(digits=8))
 print(type(f.name()))
-print(f.random_int(99,660))
+print(f.random_int(99, 660))
 #
 # import random
 #

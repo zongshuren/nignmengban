@@ -40,7 +40,7 @@ import time, os
     普通创建方式
 '''
 # def run(n):
-#     print('task',n)
+#     print('task', n)
 #     time.sleep(1)
 #     print('2s')
 #     time.sleep(1)
@@ -50,8 +50,8 @@ import time, os
 #     time.sleep(1)
 #
 # if __name__ == '__main__':
-#     t1 = threading.Thread(target=run,args=('t1',))     # target是要执行的函数名（不是函数），args是函数对应的参数，以元组的形式存在
-#     t2 = threading.Thread(target=run,args=('t2',))
+#     t1 = threading.Thread(target=run, args=('t1',))     # target是要执行的函数名（不是函数），args是函数对应的参数，以元组的形式存在
+#     t2 = threading.Thread(target=run, args=('t2',))
 #     t1.start()
 #     t2.start()
 
@@ -60,12 +60,12 @@ import time, os
     自定义线程：继承threading.Thread来定义线程类，其本质是重构Thread类中的run方法
 '''
 # class MyThread(threading.Thread):
-#     def __init__(self,n):
-#         super(MyThread,self).__init__()   #重构run函数必须写
+#     def __init__(self, n):
+#         super(MyThread, self).__init__()   # 重构run函数必须写
 #         self.n = n
 #
 #     def run(self):
-#         print('task',self.n)
+#         print('task', self.n)
 #         time.sleep(1)
 #         print('2s')
 #         time.sleep(1)
@@ -87,20 +87,20 @@ import time, os
     因此当主线程结束后，子线程也会随之结束，所以当主线程结束后，整个程序就退出了。
     所谓’线程守护’，就是主线程不管该线程的执行情况，只要是其他子线程结束且主线程执行完毕，主线程都会关闭。也就是说:主线程不等待该守护线程的执行完再去关闭。
 '''
-# def run(n):
-#     print('task',n)
-#     time.sleep(1)
-#     print('3s')
-#     time.sleep(1)
-#     print('2s')
-#     time.sleep(1)
-#     print('1s')
-#
-# if __name__ == '__main__':
-#     t=threading.Thread(target=run,args=('t1',))
-#     t.setDaemon(True)
-#     t.start()
-#     print('end')
+def run(n):
+    print('task', n)
+    time.sleep(1)
+    print('3s')
+    time.sleep(1)
+    print('2s')
+    time.sleep(1)
+    print('1s')
+
+if __name__ == '__main__':
+    t = threading.Thread(target=run, args=('t1',))
+    t.setDaemon(True)
+    t.start()
+    print('end')
 '''
     通过执行结果可以看出，设置守护线程之后，当主线程结束时，子线程也将立即结束，不再执行
 '''
@@ -229,42 +229,42 @@ import time, os
     事件处理的机制：全局定义了一个Flag，当Flag的值为False，那么event.wait()就会阻塞，当flag值为True，
     那么event.wait()便不再阻塞
 '''
-event = threading.Event()
-def lighter():
-    count = 0
-    event.set()         # 初始者为绿灯
-    while True:
-        if 5 < count <= 10:
-            event.clear()  # 红灯，清除标志位
-            print("\33[41;lmred light is on...\033[0m]")
-        elif count > 10:
-            event.set()    # 绿灯，设置标志位
-            count = 0
-        else:
-            print('\33[42;lmgreen light is on...\033[0m')
-
-        time.sleep(1)
-        count += 1
-
-
-def car(name):
-    while True:
-        if event.is_set():     # 判断是否设置了标志位
-            print('[%s] running.....' % name)
-            time.sleep(1)
-        else:
-            print('[%s] sees red light,waiting...' % name)
-            event.wait()
-            print('[%s] green light is on,start going...' % name)
-
-
-# startTime = time.time()
-light = threading.Thread(target=lighter,)
-light.start()
-
-car = threading.Thread(target=car, args=('MINT',))
-car.start()
-endTime = time.time()
+# event = threading.Event()
+# def lighter():
+#     count = 0
+#     event.set()         # 初始者为绿灯
+#     while True:
+#         if 5 < count <= 10:
+#             event.clear()  # 红灯，清除标志位
+#             print("\33[41;lmred light is on...\033[0m]")
+#         elif count > 10:
+#             event.set()    # 绿灯，设置标志位
+#             count = 0
+#         else:
+#             print('\33[42;lmgreen light is on...\033[0m')
+#
+#         time.sleep(1)
+#         count += 1
+#
+#
+# def car(name):
+#     while True:
+#         if event.is_set():     # 判断是否设置了标志位
+#             print('[%s] running.....' % name)
+#             time.sleep(1)
+#         else:
+#             print('[%s] sees red light,waiting...' % name)
+#             event.wait()
+#             print('[%s] green light is on,start going...' % name)
+#
+#
+# # startTime = time.time()
+# light = threading.Thread(target=lighter,)
+# light.start()
+#
+# car = threading.Thread(target=car, args=('MINT',))
+# car.start()
+# endTime = time.time()
 # print('用时：',endTime-startTime)
 
 '''
