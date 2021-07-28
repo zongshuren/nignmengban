@@ -15,6 +15,12 @@ from class_05.math_method import MathMethod
 
 class TestMathMethod(unittest.TestCase):
 
+    def setUp(self):
+        print('开始')
+
+    def tearDown(self):
+        print('结束')
+
     def test_add_two_positive(self):
         res = MathMethod(1, 1).add()
         print('1加1的结果是', res)

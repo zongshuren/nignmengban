@@ -2,9 +2,11 @@ import random
 
 import requests
 from faker import Faker
+from class_05.dz_tsl import Get_Dz_Token
 class NewXueyuan(object):
 
     def __init__(self):
+        self.token = Get_Dz_Token().get_token()
         self.faker = Faker('zh-CN')
         self.sex = [True, False]
         self.grade = ['初一', '初二', '初三', '高一', '高二', '高三']
@@ -38,7 +40,7 @@ class NewXueyuan(object):
                     'Host': 'dztsl.lexue.com',
                     'Proxy-Connection': 'keep-alive',
                     'Accept': 'application/json',
-                    'Authorization': 'eyJhbGciOiJIUzI1NiJ9.eyJ0ZW5hbnRfaWQiOjE1MCwic3RhIjoxNjI1ODI1MDc2OTAyLCJleHAiOjE2MjY0Mjk4NzY5MDIsInVzciI6IjE4NDEwMDczMTgxIn0.J2HmMdL4ZCQXxTOeOeihriw4Z-AyFYvk-waEXKHWmgM',
+                    'Authorization': f'{self.token}',
                     'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1',
                     'Content-Type': 'application/json;charset=UTF-8',
                     'Origin': 'http://dztsl.lexue.com',
@@ -74,7 +76,7 @@ class NewXueyuan(object):
 
         for i in range(num):
             url, headers, josn = self.data_preparation()
-            # res = requests.post(url=url, headers=headers, json=josn)
+            res = requests.post(url=url, headers=headers, json=josn)
             print(josn)
             # print(res.json())
 
