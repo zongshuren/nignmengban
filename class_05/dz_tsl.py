@@ -5,28 +5,41 @@
 """
 import requests
 from requests import request
+import unittest
 
 class Get_Dz_Token():
 
     def __init__(self):
         self.url = 'http://dztsl.lexue.com/api/auth/login'
-        self.date = {'username': '18410073181', 'password': 'null', 'tenant_id': 150, 'openid': ''}
+        self.date = {'username': '18410073181', 'password': '1234567', 'tenant_id': 150, 'openid': ''}
 
     def get_token(self):
 
-        res = requests.post(url=self.url, data=self.date)
-        print(res.text)
+        # res = requests.post(url=self.url, data=self.date)
+        # print(res.text)
+
         # cookies = res.cookies
         # token = res.json()['token']
+        # self.url = 'http://dztsl.lexue.com/api/auth/login'
+        # self.date = {'username': '18410073181', 'password': 'null', 'tenant_id': 150, 'openid': ''}
         try:
-            token = res.json()['token']
-            # print(token)
-            return token
-        except KeyError as e:
-            print('token获取失败，未找到token')
+            res = requests.post(url=self.url, data=self.date)
+            # print(res.text)
+            res1 = str(res.text)
+            # print(res1)
+            if 'token' not in res1:
+                raise KeyError('没有token')
+            else:
+                token = res.json()['token']
+                # print(token)
+                return token
+        except KeyError:
+            print('token获取失败')
 
 
-        print('hello')
+
+
+        # print('hello')
 
 
 
