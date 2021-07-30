@@ -37,15 +37,6 @@ class Get_Dz_Token():
             print('token获取失败')
 
 
-
-
-        # print('hello')
-
-
-
-
-
-
 if __name__ == '__main__':
     Get_Dz_Token().get_token()
     # print(Get_Dz_Token().get_token())
