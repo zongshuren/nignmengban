@@ -6,19 +6,27 @@
 import unittest
 import requests
 import time
-COOKIES = None
+from class_06.get_token import GetToken
+
 class DzCase(unittest.TestCase):
 
     def setUp(self):
         url = 'http://dztsl.lexue.com/api/auth/login'
         date = {'username': '18410073181', 'password': '1234567', 'tenant_id': 150, 'openid': ''}
-        res = requests.post(url=url, data=date)
-        self.token = res.json()['token']
+        try:
+            res = requests.post(url=url, data=date)
+            if res.json()['token']:
+                setattr(GetToken, 'Token', res.json()['token'])
+            else:
+                print('没有Token，请指示')
+        except KeyError:
+            print('token获取失败')
+            # raise KeyError
         self.headers = {
             'Host': 'dztsl.lexue.com',
             'Proxy-Connection': 'keep-alive',
             'Accept': 'application/json',
-            'Authorization': f'{self.token}',
+            'Authorization': getattr(GetToken, 'Token'),
             'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1',
             'Content-Type': 'application/json;charset=UTF-8',
             'Origin': 'http://dztsl.lexue.com',
@@ -29,12 +37,11 @@ class DzCase(unittest.TestCase):
 
     def test_dz_getUserActListByDateWithRoleAndUser(self):
 
-        global COOKIES
         getUserActListByDateWithRoleAndUser_url = 'http://dztsl.lexue.com/api/ai/getUserActListByDateWithRoleAndUser?date=2021-7-30&role=consultant&username=18410073181&actType=S_LOV_SALES'
         res = requests.get(url=getUserActListByDateWithRoleAndUser_url, headers=self.headers)
 
         try:
-            self.assertEqual('Get user act list successfully.', res.json()['error_message'])
+            self.assertEqual('Get user act list successfully.1', res.json()['error_message'])
         except AssertionError as e:
             print('用例test_dz_getUserActListByDateWithRoleAndUser报错：{0}'.format(e))
             raise e
@@ -58,5 +65,6 @@ class DzCase(unittest.TestCase):
 
 
     def tearDown(self):
+
         print('这条结束啦')
 
