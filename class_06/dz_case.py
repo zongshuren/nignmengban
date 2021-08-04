@@ -8,6 +8,18 @@ import requests
 import time
 from class_06.get_token import GetToken
 
+nowTime = time.strftime("%Y-%m-%d %H:%M", time.localtime())
+
+test_data = [
+    {'data': {"title": "自动化日常测试", "content": "自动化任务测试", "time": f"{nowTime}", "end_time": f"{nowTime}",
+                        "employee": "[{\"label\":\"宗树仁\",\"value\":2127}]", "rolePlay": "consultant", "type_id": 4745, "status": 0},
+     'addCommonActivity_url': 'http://dztsl.lexue.com/api/activities/addCommonActivity'},
+
+    {'data': {"title": "自动化日常测试", "content": "自动化任务测试", "time": f"{nowTime}", "end_time": f"{nowTime}",
+                        "employee": "[{\"label\":\"宗树仁\",\"value\":2127}]", "rolePlay": "consultant", "type_id": 4745, "status": 0},
+     'addCommonActivity_url': 'http://dztsl.lexue.com/api/activities/addCommonActivity'}
+]
+
 class DzCase(unittest.TestCase):
 
     def setUp(self):
@@ -34,31 +46,31 @@ class DzCase(unittest.TestCase):
         }
         self.nowTime = time.strftime("%Y-%m-%d %H:%M", time.localtime())
 
-
-    def test_dz_getUserActListByDateWithRoleAndUser(self):
-
-        getUserActListByDateWithRoleAndUser_url = 'http://dztsl.lexue.com/api/ai/getUserActListByDateWithRoleAndUser?date=2021-7-30&role=consultant&username=18410073181&actType=S_LOV_SALES'
-        res = requests.get(url=getUserActListByDateWithRoleAndUser_url, headers=self.headers)
-
-        try:
-            self.assertEqual('Get user act list successfully.1', res.json()['error_message'])
-        except AssertionError as e:
-            print('用例test_dz_getUserActListByDateWithRoleAndUser报错：{0}'.format(e))
-            raise e
-        print(res.json())
+    # def test_dz_getUserActListByDateWithRoleAndUser(self):
+    #
+    #     getUserActListByDateWithRoleAndUser_url = 'http://dztsl.lexue.com/api/ai/getUserActListByDateWithRoleAndUser?date=2021-7-30&role=consultant&username=18410073181&actType=S_LOV_SALES'
+    #     res = requests.get(url=getUserActListByDateWithRoleAndUser_url, headers=self.headers)
+    #
+    #     try:
+    #         self.assertEqual('Get user act list successfully.1', res.json()['error_message'])
+    #     except AssertionError as e:
+    #         print('用例test_dz_getUserActListByDateWithRoleAndUser报错：{0}'.format(e))
+    #         raise e
+    #     print(res.json())
 
     def test_dz_addCommonActivity(self):
 
-        addCommonActivity_url = 'http://dztsl.lexue.com/api/activities/addCommonActivity'
-        data = {"title": "自动化日常测试", "content": "自动化任务测试", "time": f"{self.nowTime}", "end_time": f"{self.nowTime}", "employee": "[{\"label\":\"宗树仁\",\"value\":2127}]", "rolePlay": "consultant", "type_id": 4745, "status": 0}
-        res = requests.post(url=addCommonActivity_url, json=data, headers=self.headers)
-        # print(res.json())
-        try:
-            self.assertEqual('Add activity successfully.', res.json()['error_message'])
-        except AssertionError as e:
-            print('用例test_dz_addCommonActivity报错：{0}'.format(e))
-            raise e
-        print(res.json())
+        # addCommonActivity_url = 'http://dztsl.lexue.com/api/activities/addCommonActivity'
+        # data = {"title": "自动化日常测试", "content": "自动化任务测试", "time": f"{self.nowTime}", "end_time": f"{self.nowTime}", "employee": "[{\"label\":\"宗树仁\",\"value\":2127}]", "rolePlay": "consultant", "type_id": 4745, "status": 0}
+        for item in test_data:
+            res = requests.post(url=item['addCommonActivity_url'], json=item['data'], headers=self.headers)
+            # print(res.json())
+            try:
+                self.assertEqual('Add activity successfully.', res.json()['error_message'])
+            except AssertionError as e:
+                print('用例test_dz_addCommonActivity报错：{0}'.format(e))
+                raise e
+            print(res.json())
 
     def test_time(self):
         print(time.strftime("%Y-%m-%d %H:%M", time.localtime()))
