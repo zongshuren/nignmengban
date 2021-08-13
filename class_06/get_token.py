@@ -12,3 +12,6 @@ if __name__ == '__main__':
     print(GetToken.Token)
     setattr(GetToken, 'Token', 'zongshurne')
     print(getattr(GetToken, 'Token'))
+    print(hasattr(GetToken, 'Token'))
+    delattr(GetToken, 'Token')
+    print(hasattr(GetToken, 'Token'))

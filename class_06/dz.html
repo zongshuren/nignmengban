@@ -53,7 +53,7 @@ a.popup_link:hover {
     width: 500px;
 }
 
-
+}
 /* -- report ------------------------------------------------------------------------ */
 #show_detail_line {
     margin-top: 3ex;
@@ -189,9 +189,9 @@ function showOutput(id, name) {
 
 <div class='heading'>
 <h1>多招测试用例</h1>
-<p class='attribute'><strong>开始时间：:</strong> 2021-07-31 16:29:32</p>
-<p class='attribute'><strong>合计耗时：:</strong> 0:00:00.289835</p>
-<p class='attribute'><strong>测试结果：:</strong> Pass 2 Failure 1</p>
+<p class='attribute'><strong>Start Time:</strong> 2021-08-07 14:49:11</p>
+<p class='attribute'><strong>Duration:</strong> 0:00:00.377609</p>
+<p class='attribute'><strong>Status:</strong> Pass 1</p>
 
 <p class='description'>zsr</p>
 </div>
@@ -213,21 +213,21 @@ function showOutput(id, name) {
 <col align='right' />
 </colgroup>
 <tr id='header_row'>
-    <td>用例集/测试用例</td>
-    <td>统计</td>
-    <td>通过</td>
-    <td>失败</td>
-    <td>错误</td>
-    <td>所有</td>
+    <td>Test Group/Test case</td>
+    <td>Count</td>
+    <td>Pass</td>
+    <td>Fail</td>
+    <td>Error</td>
+    <td>View</td>
 </tr>
 
-<tr class='failClass'>
+<tr class='passClass'>
     <td>class_06.dz_case.DzCase</td>
-    <td>3</td>
-    <td>2</td>
+    <td>1</td>
     <td>1</td>
     <td>0</td>
-    <td><a href="javascript:showClassDetail('c1',3)">详情</a></td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c1',1)">Detail</a></td>
 </tr>
 
 <tr id='pt1.1' class='hiddenRow'>
@@ -236,7 +236,7 @@ function showOutput(id, name) {
 
     <!--css div popup start-->
     <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.1')" >
-        通过</a>
+        pass</a>
 
     <div id='div_pt1.1' class="popup_window">
         <div style='text-align: right; color:red;cursor:pointer'>
@@ -245,75 +245,7 @@ function showOutput(id, name) {
         </div>
         <pre>
         
-pt1.1: {'error_code': 0, 'error_message': 'Add activity successfully.'}
-这条结束啦
-
-
-        </pre>
-    </div>
-    <!--css div popup end-->
-
-    </td>
-</tr>
-
-<tr id='ft1.2' class='none'>
-    <td class='failCase'><div class='testcase'>test_dz_getUserActListByDateWithRoleAndUser</div></td>
-    <td colspan='5' align='center'>
-
-    <!--css div popup start-->
-    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.2')" >
-        失败</a>
-
-    <div id='div_ft1.2' class="popup_window">
-        <div style='text-align: right; color:red;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.2').style.display = 'none' " >
-           [x]</a>
-        </div>
-        <pre>
-        
-ft1.2: 用例test_dz_getUserActListByDateWithRoleAndUser报错：'Get user act list successfully.1' != 'Get user act list successfully.'
-- Get user act list successfully.1
-?                                -
-+ Get user act list successfully.
-
-这条结束啦
-Traceback (most recent call last):
-  File "C:\Users\My\PycharmProjects\nignmengban\class_06\dz_case.py", line 47, in test_dz_getUserActListByDateWithRoleAndUser
-    raise e
-  File "C:\Users\My\PycharmProjects\nignmengban\class_06\dz_case.py", line 44, in test_dz_getUserActListByDateWithRoleAndUser
-    self.assertEqual('Get user act list successfully.1', res.json()['error_message'])
-AssertionError: 'Get user act list successfully.1' != 'Get user act list successfully.'
-- Get user act list successfully.1
-?                                -
-+ Get user act list successfully.
-
-
-
-        </pre>
-    </div>
-    <!--css div popup end-->
-
-    </td>
-</tr>
-
-<tr id='pt1.3' class='hiddenRow'>
-    <td class='none'><div class='testcase'>test_time</div></td>
-    <td colspan='5' align='center'>
-
-    <!--css div popup start-->
-    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.3')" >
-        通过</a>
-
-    <div id='div_pt1.3' class="popup_window">
-        <div style='text-align: right; color:red;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.3').style.display = 'none' " >
-           [x]</a>
-        </div>
-        <pre>
-        
-pt1.3: 2021-07-31 16:29
-这条结束啦
-
+pt1.1: 
 
         </pre>
     </div>
@@ -323,10 +255,10 @@ pt1.3: 2021-07-31 16:29
 </tr>
 
 <tr id='total_row'>
-    <td>合计</td>
-    <td>3</td>
-    <td>2</td>
+    <td>Total</td>
     <td>1</td>
+    <td>1</td>
+    <td>0</td>
     <td>0</td>
     <td>&nbsp;</td>
 </tr>
