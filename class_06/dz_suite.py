@@ -4,10 +4,11 @@
 @Time:2021/7/31 15:31
 """
 import unittest
-import HTMLTestRunner
+from HTMLTestRunner_PY3 import HTMLTestRunner
 from class_06 import dz_case
 import time
 from class_06.dz_case import DzCase
+from class_06.dz_excel import DoExcel
 from openpyxl import load_workbook
 import json
 
@@ -25,25 +26,26 @@ nowTime = time.strftime("%Y-%m-%d %H:%M", time.localtime())
 #      'addCommonActivity_url': 'http://dztsl.lexue.com/api/activities/addCommonActivity'}
 # ]
 #
-# for item in test_data:
-#     print(type(item['data']))
-#     suit.addTest(DzCase('test_dz_addCommonActivity', item['data'], item['addCommonActivity_url']))
+test_data = DoExcel(r'C:\Users\Administrator\Desktop\测试.xlsx', 'Sheet1').get_data()
 
-wb = load_workbook(r'C:\Users\Administrator\Desktop\测试.xlsx')
-sheet = wb['Sheet1']
-
-max_row = sheet.max_row
-
-for i in range(1, max_row+1):
+for item in test_data:
+    print(item)
     try:
-        data = eval(sheet.cell(i, 1).value)
-        url = sheet.cell(i, 2).value
-        print(data, url)
-        suit.addTest(DzCase('test_dz_addCommonActivity', data, url))
-    except TypeError as e:
-        print('第{0}行出现错误请检查数据，错误为{1}'.format(i, e))
+        suit.addTest(DzCase('test_dz_addCommonActivity', eval(item['data']), item['url']))
+    except KeyError as e:
+        print('数据出问题了，检查一下{0}'.format(e))
+
+#
+# for i in range(1, max_row+1):
+#     try:
+#         data = eval(sheet.cell(i, 1).value)
+#         url = sheet.cell(i, 2).value
+#         print(data, url)
+#         suit.addTest(DzCase('test_dz_addCommonActivity', data, url))
+#     except TypeError as e:
+#         print('第{0}行出现错误请检查数据，错误为{1}'.format(i, e))
 
 with open('dz_case.html', 'wb') as file:
 
-    runner = HTMLTestRunner.HTMLTestRunner(stream=file, verbosity=2, title='多招测试用例', description='zsr')
+    runner = HTMLTestRunner(stream=file, verbosity=2, title='多招测试用例', description='zsr')
     runner.run(suit)
