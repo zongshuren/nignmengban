@@ -8,24 +8,29 @@ class DoExcel:
         self.file_name = file_name
         self.sheet_name = sheet_name
 
-    def get_data(self):
-        t0 = time.time()
+    def get_data(self, butten=None):
         wb = load_workbook(self.file_name, read_only=True)
         sheet = wb[self.sheet_name]
         excel_list = []
 
-        max_row = sheet.max_row
-        for i in range(1, max_row+1):
+        for i in range(2, sheet.max_row+1):
             excel_dict = {}
             try:
-                excel_dict['data'] = sheet.cell(i, 1).value
-                excel_dict['url'] = sheet.cell(i, 2).value
+                excel_dict['ID'] = sheet.cell(i, 1).value
+                excel_dict['data'] = sheet.cell(i, 2).value
+                excel_dict['url'] = sheet.cell(i, 3).value
                 excel_list.append(excel_dict)
             except TypeError as e:
                 print('第{0}行出现错误请检查数据，错误为{1}'.format(i, e))
-        t1 = time.time()
-        print('读取完成耗时%0.3f秒钟'%(t1-t0))
-        return excel_list
+        if butten == None:
+            final_data = excel_list
+        else:
+            final_data = []
+            for item in excel_list:
+                if item['ID'] in butten:
+                    final_data.append(item)
+
+        return final_data
 
 if __name__ == '__main__':
 
