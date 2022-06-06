@@ -9,13 +9,16 @@ from class_06 import dz_case
 import time
 from class_06.dz_case import DzCase
 from class_06.dz_excel import DoExcel
+from class_06.tools.read_config import ReadConfig
 from openpyxl import load_workbook
 import json
 
 suit = unittest.TestSuite()
 loder = unittest.TestLoader()
 
-nowTime = time.strftime("%Y-%m-%d %H:%M", time.localtime())
+# nowTime = time.strftime("%Y-%m-%d %H:%M", time.localtime())
+# 读取配置文件 data_num
+data_num = ReadConfig().read_config(r'D:\pycharm-professional-2017.2.3\nignmengban\class_06\tools\case.config', 'MODE', 'mode')
 
 # test_data = [
 #     {'data': {"title": "自动化日常测试", "content": "自动化任务测试", "time": "2021-08-07 21:27", "end_time": "2021-08-07 21:27","employee": "[{\"label\":\"宗树仁\",\"value\":2127}]", "rolePlay": "consultant", "type_id": 4745, "status": 0},
@@ -26,7 +29,8 @@ nowTime = time.strftime("%Y-%m-%d %H:%M", time.localtime())
 #      'addCommonActivity_url': 'http://dztsl.lexue.com/api/activities/addCommonActivity'}
 # ]
 #
-test_data = DoExcel(r'C:\Users\Administrator\Desktop\测试.xlsx', 'Sheet1').get_data()
+
+test_data = DoExcel(r'C:\Users\Administrator\PycharmProjects\PonHu\api_auto\learn\测试.xlsx', 'login').get_data(eval(data_num))
 
 for item in test_data:
     print(item)

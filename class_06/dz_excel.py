@@ -16,9 +16,11 @@ class DoExcel:
         for i in range(2, sheet.max_row+1):
             excel_dict = {}
             try:
-                excel_dict['ID'] = sheet.cell(i, 1).value
-                excel_dict['data'] = sheet.cell(i, 2).value
-                excel_dict['url'] = sheet.cell(i, 3).value
+                excel_dict['id'] = sheet.cell(i, 1).value
+                excel_dict['title'] = sheet.cell(i, 2).value
+                excel_dict['method'] = sheet.cell(i, 3).value
+                excel_dict['data'] = sheet.cell(i, 4).value
+                excel_dict['url'] = sheet.cell(i, 5).value
                 excel_list.append(excel_dict)
             except TypeError as e:
                 print('第{0}行出现错误请检查数据，错误为{1}'.format(i, e))
@@ -27,14 +29,14 @@ class DoExcel:
         else:
             final_data = []
             for item in excel_list:
-                if item['ID'] in butten:
+                if item['id'] in butten:
                     final_data.append(item)
 
         return final_data
 
 if __name__ == '__main__':
 
-    file = DoExcel(r'C:\Users\Administrator\Desktop\测试.xlsx', 'Sheet1').get_data()
+    file = DoExcel(r'C:\Users\Administrator\PycharmProjects\PonHu\api_auto\learn\测试.xlsx', 'login').get_data()
     print(file)
 #
 

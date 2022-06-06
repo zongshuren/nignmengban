@@ -4,6 +4,7 @@ import unittest
 test_data = [[1, 2], [3, 4, 5]]
 test_data1 = [{'no': 1, 'name': '名字'}, {'no': 2, 'name': '名字2'}]
 
+
 @ddt  # 装饰测试类
 class TestMath(unittest.TestCase):
     #
@@ -17,3 +18,4 @@ class TestMath(unittest.TestCase):
     def test_print_data1(self, no):
         print('no:', no['no'])
         print('name:', no['name'])
+False

@@ -96,23 +96,37 @@ userandpassword = {'admin': '123456', 'power': '654321'}
 #         continue
 # print(userandpassword)
 
-a = [[1, 2, 3], [5, 5, 6], [7, 8, 9]]
-init_i = 0
-init_j = 0
-flag = True
-for i in range(3):
-    print(i)
-    for j in range(3):
-        # print(i, j)
-        if a[i][j] == 5:
-            # print(a[i][j])
-            flag = False
-            init_i = i
-            init_j = j
-            break
-    else:
-        continue
-    break
+# a = [[1, 2, 3], [5, 5, 6], [7, 8, 9]]
+# init_i = 0
+# init_j = 0
+# flag = True
+# for i in range(3):
+#     print(i)
+#     for j in range(3):
+#         # print(i, j)
+#         if a[i][j] == 5:
+#             # print(a[i][j])
+#             flag = False
+#             init_i = i
+#             init_j = j
+#             break
+#     else:
+#         continue
+#     break
     # if not flag:
     #     break
 # print(init_i, init_j)
+
+count = 0
+while 1:
+    print('爱你哟')
+    count += 1
+    if count == 10:
+        break
+
+    a = [
+        1,
+        2,
+        3
+    ]
+    print(a)

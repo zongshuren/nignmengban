@@ -1,5 +1,5 @@
 import os
-
+os.mkdir('')
 # 新建一个目录/新建一个文件夹
 # os.mkdir('Alisa')
 # 跨级新建目录 用/表示不同的层级，必须确保上面的层级是存在的
@@ -71,4 +71,4 @@ import os
 #     for filename in filenames:
 #         print(os.path.join(dirpath, filename))
 # if __name__ == '__main__':
-#
+

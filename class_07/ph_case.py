@@ -7,10 +7,12 @@ import unittest
 import requests
 import time
 from ddt import ddt, data
-from class_06.get_token import GetToken
-import do_excel
+from class_07.get_token import GetToken
+import ph_excel
 
-test_data = do_excel.DzExcel(r'C:\Users\Administrator\Desktop\测试.xlsx', 'Sheet1').get_data2()
+
+
+test_data = ph_excel.DzExcel(r'C:\Users\Administrator\Desktop\测试.xlsx', 'Sheet1').get_data2()
 nowTime = time.strftime("%Y-%m-%d %H:%M", time.localtime())
 
 
@@ -47,7 +49,7 @@ class DzCase(unittest.TestCase):
             res = requests.post(json=eval(test_data['data']), url=test_data['url'], headers=self.headers)
             self.assertEqual('Add activity successfully.', res.json()['error_message'])
         except Exception as e:
-            print('用例test_dz_addCommonActivity报错：{0}'.format(e))
+            print('用例_dz_addCommonActivity报错：{0}'.format(e))
             raise e
         print(res.json())
 

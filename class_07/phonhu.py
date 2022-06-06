@@ -1,6 +1,7 @@
 import requests
 import random
 class PhonHu:
+
     def __init__(self):
         # 实例化会话对象
         # 保持登录用的

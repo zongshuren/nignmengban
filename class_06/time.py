@@ -14,13 +14,16 @@ class A_Time:
 
     from multiprocessing import cpu_count
     from multiprocessing import Process
-
+    def b_time(self, struct_time):
+        timeArray = time.strptime(struct_time, "%Y-%m-%d %H:%M:%S")
+        timestamp = time.mktime(timeArray)
+        print(timestamp)
 
 
 if __name__ == '__main__':
 
-    A_Time().a_time(1629187456)
-
+    # A_Time().a_time(1462451334)
+    A_Time().b_time('2021-10-10 20:28:54')
 
 #
 # from multiprocessing import cpu_count

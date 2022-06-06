@@ -1,0 +1,64 @@
+gotoware_type: 2
+cost_price:
+cg_price: 150
+w_price: 400
+gh_price: 425
+pai_price:
+buy_price: 850
+original_price:
+temai_price:
+warehouseid: 113
+goods_location:
+fuId:
+goods_level: 1
+level: F
+gong_code:
+is_contract: 0
+send_time: 2
+adimg: (binary)
+jiamengshop: 0
+bz: 1
+supply_type:
+ware_remarks:
+method_type:
+con_name: 654
+con_name_writ:
+purchase_first_channel: 1
+purchase_second_channel: 6
+appraiser: 35
+con_busman: 0
+newbusiness: 0
+con_price:
+con_care:
+con_yang:
+pid: 255
+first_category_id: 1
+zid: 27
+movement:
+goods_series_default: 未知系列
+movement_model:
+uploadimages: https://img-ppcdn.ponhu.cn/FuR_js4859rib_ZmU4AZ0kwj8MfU
+u_name: passwordpasswordpasswordpassword
+goods_selling:
+goods_beizhu:
+countries: 0
+cheng: 2
+fitgroup: 2
+goods_year:
+goods_year_default: 未知年份
+bdcontacts:
+hpcontacts:
+hzcontacts:
+bag_number:
+bag_chang:
+pei_chang:
+shi_chang:
+watch_code:
+watch_wtrap_factory: 1
+watch_clasp_factory: 1
+card_date:
+jing:
+watch_diameter:
+wanzhou:
+depth:
+yi_colour:
